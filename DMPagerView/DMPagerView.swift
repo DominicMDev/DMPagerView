@@ -9,10 +9,8 @@
 import UIKit
 import ObjectiveC
 
-/**
- A DMPagerView lets the user navigate between pages of content.
- Navigation can be controlled programmatically by your app or directly by the user using gestures.
- */
+/// A DMPagerView lets the user navigate between pages of content.
+/// Navigation can be controlled programmatically by your app or directly by the user using gestures.
 public class DMPagerView: UIView, UIScrollViewDelegate {
     
     /*
@@ -29,9 +27,7 @@ public class DMPagerView: UIView, UIScrollViewDelegate {
     var index: Int = 0
     var count: Int = 0
     
-    /*
-     *  MARK: - Instance Properties - Public
-     */
+    // MARK: - Instance Properties - Public
     
     /// Delegate instance that adopt the `DMPagerViewDelegate`.
     @IBOutlet public dynamic weak var delegate: DMPagerViewDelegate?
@@ -73,17 +69,17 @@ public class DMPagerView: UIView, UIScrollViewDelegate {
      *  MARK: - Object Life Cycle
      */
     
-    convenience init() {
+    public convenience init() {
         self.init(frame: .zero)
     }
     
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         scrollView = UIScrollView(frame: frame)
         super.init(frame: frame)
         initialize()
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         scrollView = UIScrollView(frame: .zero)
         super.init(coder: aDecoder)
         scrollView.frame = frame
@@ -115,7 +111,7 @@ public class DMPagerView: UIView, UIScrollViewDelegate {
      *  MARK: - View Life Cycle
      */
     
-    open override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         if count <= 0 { reloadData() }
         
@@ -285,7 +281,7 @@ public class DMPagerView: UIView, UIScrollViewDelegate {
         unloadHiddenPages()
     }
     
-    internal func loadPage(at index: Int) {
+    private func loadPage(at index: Int) {
         guard let dataSource = dataSource, index >= 0 && index < count else { return }
         if page(at: index) == nil {
             let page = dataSource.pagerView(self, viewForPageAt: index)
@@ -337,6 +333,12 @@ public class DMPagerView: UIView, UIScrollViewDelegate {
         pages.removeValues(forKeys: toUnload)
     }
     
+    
+    /// Sets the offset from the content view’s origin that corresponds to the receiver’s origin.
+    ///
+    /// - Parameters:
+    ///   - contentOffset: A point (expressed in points) that is offset from the content view’s origin.
+    ///   - animated: true to animate the transition at a constant velocity to the new offset, false to make the transition immediate.
     public func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
         if fmod(contentOffset.x, bounds.width) == 0 {
             let index = Int(contentOffset.x / bounds.width)

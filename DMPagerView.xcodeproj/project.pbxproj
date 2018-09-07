@@ -8,12 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		8058C2C721418E4D006BC64B /* DMPagerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8058C2C521418E4D006BC64B /* DMPagerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8058C2CE21418E68006BC64B /* DMPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C2CD21418E68006BC64B /* DMPagerView.swift */; };
+		8058C2D0214196B4006BC64B /* DMPagerViewDelegateForwarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C2CF214196B4006BC64B /* DMPagerViewDelegateForwarder.swift */; };
+		8058C2D2214199F8006BC64B /* DMPagerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C2D1214199F8006BC64B /* DMPagerViewDelegate.swift */; };
+		8058C3092141B2DC006BC64B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C3082141B2DC006BC64B /* Enums.swift */; };
+		8058C31121421383006BC64B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C31021421383006BC64B /* Extensions.swift */; };
+		8058C31321421441006BC64B /* DMPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C31221421441006BC64B /* DMPagerViewController.swift */; };
+		8058C31521421926006BC64B /* DMPageSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C31421421926006BC64B /* DMPageSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8058C2C221418E4D006BC64B /* DMPagerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMPagerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8058C2C521418E4D006BC64B /* DMPagerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMPagerView.h; sourceTree = "<group>"; };
 		8058C2C621418E4D006BC64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8058C2CD21418E68006BC64B /* DMPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPagerView.swift; sourceTree = "<group>"; };
+		8058C2CF214196B4006BC64B /* DMPagerViewDelegateForwarder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPagerViewDelegateForwarder.swift; sourceTree = "<group>"; };
+		8058C2D1214199F8006BC64B /* DMPagerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPagerViewDelegate.swift; sourceTree = "<group>"; };
+		8058C3082141B2DC006BC64B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		8058C31021421383006BC64B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8058C31221421441006BC64B /* DMPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPagerViewController.swift; sourceTree = "<group>"; };
+		8058C31421421926006BC64B /* DMPageSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPageSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +60,13 @@
 		8058C2C421418E4D006BC64B /* DMPagerView */ = {
 			isa = PBXGroup;
 			children = (
+				8058C2D1214199F8006BC64B /* DMPagerViewDelegate.swift */,
+				8058C2CF214196B4006BC64B /* DMPagerViewDelegateForwarder.swift */,
+				8058C2CD21418E68006BC64B /* DMPagerView.swift */,
+				8058C31221421441006BC64B /* DMPagerViewController.swift */,
+				8058C31421421926006BC64B /* DMPageSegue.swift */,
+				8058C31021421383006BC64B /* Extensions.swift */,
+				8058C3082141B2DC006BC64B /* Enums.swift */,
 				8058C2C521418E4D006BC64B /* DMPagerView.h */,
 				8058C2C621418E4D006BC64B /* Info.plist */,
 			);
@@ -90,11 +111,13 @@
 		8058C2B921418E4D006BC64B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Dominic Miller";
 				TargetAttributes = {
 					8058C2C121418E4D006BC64B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -130,6 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8058C2CE21418E68006BC64B /* DMPagerView.swift in Sources */,
+				8058C31121421383006BC64B /* Extensions.swift in Sources */,
+				8058C2D0214196B4006BC64B /* DMPagerViewDelegateForwarder.swift in Sources */,
+				8058C31321421441006BC64B /* DMPagerViewController.swift in Sources */,
+				8058C3092141B2DC006BC64B /* Enums.swift in Sources */,
+				8058C2D2214199F8006BC64B /* DMPagerViewDelegate.swift in Sources */,
+				8058C31521421926006BC64B /* DMPageSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +289,8 @@
 		8058C2CB21418E4D006BC64B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -273,9 +305,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULEMAP_FILE = "";
+				MODULEMAP_PRIVATE_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dominicMiller.DMPagerView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +322,8 @@
 		8058C2CC21418E4D006BC64B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -298,9 +338,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULEMAP_FILE = "";
+				MODULEMAP_PRIVATE_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dominicMiller.DMPagerView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

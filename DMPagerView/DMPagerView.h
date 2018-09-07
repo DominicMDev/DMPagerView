@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double DMPagerViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char DMPagerViewVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <DMPagerView/PublicHeader.h>
-
-

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Dictionary+RemoveValuesForKeys
 extension Dictionary {
     mutating func removeValues(forKeys keys: [Key]) {
         for key in keys {
@@ -16,23 +17,25 @@ extension Dictionary {
     }
 }
 
+
+// MARK: - UIView+ReuseIdentifier
 public extension UIView {
     
     internal struct Keys {
         static var ReuseIdentifier = "dm_ReuseIdentifier"
     }
     
-    public convenience init(reuseIdentifier: String) {
+    @objc public convenience init(reuseIdentifier: String) {
         self.init()
         objc_setAssociatedObject(self, Keys.ReuseIdentifier, reuseIdentifier, .OBJC_ASSOCIATION_COPY)
     }
     
-    public convenience init(frame: CGRect, reuseIdentifier: String) {
+    @objc public convenience init(frame: CGRect, reuseIdentifier: String) {
         self.init(frame: frame)
         objc_setAssociatedObject(self, Keys.ReuseIdentifier, reuseIdentifier, .OBJC_ASSOCIATION_COPY)
     }
     
-    public convenience init?(coder aDecoder: NSCoder, reuseIdentifier: String) {
+    @objc public convenience init?(coder aDecoder: NSCoder, reuseIdentifier: String) {
         self.init(coder: aDecoder)
         objc_setAssociatedObject(self, Keys.ReuseIdentifier, reuseIdentifier, .OBJC_ASSOCIATION_COPY)
     }
@@ -43,4 +46,21 @@ public extension UIView {
     
     @objc public func prepareForReuse() {}
     
+}
+
+// MARK: - NSObjectProtocol+ObjectRespondsToSelector
+extension NSObjectProtocol {
+    func objectRespondsToSelector(_ object: NSObjectProtocol?, selector: Selector) -> Bool {
+        guard let _object = object else { return false }
+        return _object.responds(to: selector)
+    }
+}
+
+
+// MARK: - UIViewController(color: UIColor)
+extension UIViewController {
+    convenience init(color: UIColor) {
+        self.init()
+        view.backgroundColor = color
+    }
 }

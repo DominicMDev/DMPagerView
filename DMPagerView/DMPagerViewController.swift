@@ -8,9 +8,9 @@
 
 import UIKit
 
-class DMPagerViewController: UIViewController, DMPagerViewDelegate, DMPagerViewControllerDataSource, DMPageSegueSource {
+public class DMPagerViewController: UIViewController, DMPagerViewDelegate, DMPagerViewControllerDataSource, DMPageSegueSource {
     var pageViewControllers = [Int:UIViewController]()
-    var pageIndex: Int = 0
+    public internal(set) var pageIndex: Int = 0
     
     var _pagerView: DMPagerView?
     public var pagerView: DMPagerView {
@@ -22,36 +22,35 @@ class DMPagerViewController: UIViewController, DMPagerViewDelegate, DMPagerViewC
         return _pagerView!
     }
 
-    override func loadView() {
+    override public func loadView() {
         view = pagerView
     }
-
     
     /*
      *  MARK: - DMPagerViewControllerDataSource
      */
 
-    func numberOfPages(in pagerView: DMPagerView) -> Int {
+    public func numberOfPages(in pagerView: DMPagerView) -> Int {
         guard let segues = value(forKeyPath: "storyboardSegueTemplates") as? Array<Any> else { return 0 }
         return segues.count
     }
     
-    func pagerView(_ pagerView: DMPagerView, viewForPageAt index: Int) -> UIView {
+    public func pagerView(_ pagerView: DMPagerView, viewForPageAt index: Int) -> UIView {
         return self.pagerView(pagerView, viewControllerForPageAt: index).view
     }
     
-    func pagerView(_ pagerView: DMPagerView, viewControllerForPageAt index: Int) -> UIViewController {
+    public func pagerView(_ pagerView: DMPagerView, viewControllerForPageAt index: Int) -> UIViewController {
         let pageVC = pageViewControllers[index]
         if pageVC == nil && storyboard != nil {
             self.pageIndex = index
             let identifier = self.pagerView(pagerView, segueIdentifierForPageAt: index)
             self.performSegue(withIdentifier: identifier, sender: nil)
-            return self.pageViewControllers[index] ?? UIViewController()
+            return self.pageViewControllers[index] ?? UIViewController(color: .white)
         }
-        return pageVC ?? UIViewController()
+        return pageVC ?? UIViewController(color: .white)
     }
     
-    func pagerView(_ pagerView: DMPagerView, segueIdentifierForPageAt index: Int) -> String {
+    public func pagerView(_ pagerView: DMPagerView, segueIdentifierForPageAt index: Int) -> String {
         return DMSeguePageIdentifierFormat.replacingOccurrences(of: "##", with: "\(index)")
     }
     
@@ -59,7 +58,7 @@ class DMPagerViewController: UIViewController, DMPagerViewDelegate, DMPagerViewC
      *  MARK: - DMPageSegueSource
      */
     
-    func setPageViewController(_ pageViewController: UIViewController, at index: Int) {
+    public func setPageViewController(_ pageViewController: UIViewController, at index: Int) {
         pageViewControllers[index] = pageViewController
     }
     

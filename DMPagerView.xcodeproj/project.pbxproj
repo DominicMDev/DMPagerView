@@ -9,29 +9,60 @@
 /* Begin PBXBuildFile section */
 		8058C2C721418E4D006BC64B /* DMPagerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8058C2C521418E4D006BC64B /* DMPagerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8058C2CE21418E68006BC64B /* DMPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C2CD21418E68006BC64B /* DMPagerView.swift */; };
-		8058C2D0214196B4006BC64B /* DMPagerViewDelegateForwarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C2CF214196B4006BC64B /* DMPagerViewDelegateForwarder.swift */; };
 		8058C2D2214199F8006BC64B /* DMPagerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C2D1214199F8006BC64B /* DMPagerViewDelegate.swift */; };
 		8058C3092141B2DC006BC64B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C3082141B2DC006BC64B /* Enums.swift */; };
 		8058C31121421383006BC64B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C31021421383006BC64B /* Extensions.swift */; };
 		8058C31321421441006BC64B /* DMPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C31221421441006BC64B /* DMPagerViewController.swift */; };
 		8058C31521421926006BC64B /* DMPageSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C31421421926006BC64B /* DMPageSegue.swift */; };
+		8058C31D2142F30B006BC64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C31C2142F30B006BC64B /* AppDelegate.swift */; };
+		8058C31F2142F30B006BC64B /* PagerViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C31E2142F30B006BC64B /* PagerViewExample.swift */; };
+		8058C3242142F310006BC64B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8058C3232142F310006BC64B /* Assets.xcassets */; };
+		8058C3272142F310006BC64B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8058C3252142F310006BC64B /* LaunchScreen.storyboard */; };
+		8058C32F2142F4B8006BC64B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8058C32E2142F4B8006BC64B /* Main.storyboard */; };
+		8058C3312142F867006BC64B /* LongText.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8058C3302142F85F006BC64B /* LongText.txt */; };
+		8058C33321434231006BC64B /* DMPagerView+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C33221434231006BC64B /* DMPagerView+UIScrollViewDelegate.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8058C32C2142F410006BC64B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8058C2B921418E4D006BC64B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8058C2C121418E4D006BC64B;
+			remoteInfo = DMPagerView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8058C2C221418E4D006BC64B /* DMPagerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMPagerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8058C2C521418E4D006BC64B /* DMPagerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMPagerView.h; sourceTree = "<group>"; };
 		8058C2C621418E4D006BC64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8058C2CD21418E68006BC64B /* DMPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPagerView.swift; sourceTree = "<group>"; };
-		8058C2CF214196B4006BC64B /* DMPagerViewDelegateForwarder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPagerViewDelegateForwarder.swift; sourceTree = "<group>"; };
 		8058C2D1214199F8006BC64B /* DMPagerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPagerViewDelegate.swift; sourceTree = "<group>"; };
 		8058C3082141B2DC006BC64B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		8058C31021421383006BC64B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8058C31221421441006BC64B /* DMPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPagerViewController.swift; sourceTree = "<group>"; };
 		8058C31421421926006BC64B /* DMPageSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPageSegue.swift; sourceTree = "<group>"; };
+		8058C31A2142F30B006BC64B /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8058C31C2142F30B006BC64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8058C31E2142F30B006BC64B /* PagerViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewExample.swift; sourceTree = "<group>"; };
+		8058C3232142F310006BC64B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8058C3262142F310006BC64B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8058C3282142F310006BC64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8058C32E2142F4B8006BC64B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8058C3302142F85F006BC64B /* LongText.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LongText.txt; sourceTree = "<group>"; };
+		8058C33221434231006BC64B /* DMPagerView+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DMPagerView+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8058C2BE21418E4D006BC64B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8058C3172142F30B006BC64B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				8058C2C421418E4D006BC64B /* DMPagerView */,
+				8058C31B2142F30B006BC64B /* Example */,
 				8058C2C321418E4D006BC64B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				8058C2C221418E4D006BC64B /* DMPagerView.framework */,
+				8058C31A2142F30B006BC64B /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,8 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				8058C2D1214199F8006BC64B /* DMPagerViewDelegate.swift */,
-				8058C2CF214196B4006BC64B /* DMPagerViewDelegateForwarder.swift */,
 				8058C2CD21418E68006BC64B /* DMPagerView.swift */,
+				8058C33221434231006BC64B /* DMPagerView+UIScrollViewDelegate.swift */,
 				8058C31221421441006BC64B /* DMPagerViewController.swift */,
 				8058C31421421926006BC64B /* DMPageSegue.swift */,
 				8058C31021421383006BC64B /* Extensions.swift */,
@@ -71,6 +104,20 @@
 				8058C2C621418E4D006BC64B /* Info.plist */,
 			);
 			path = DMPagerView;
+			sourceTree = "<group>";
+		};
+		8058C31B2142F30B006BC64B /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				8058C31C2142F30B006BC64B /* AppDelegate.swift */,
+				8058C31E2142F30B006BC64B /* PagerViewExample.swift */,
+				8058C32E2142F4B8006BC64B /* Main.storyboard */,
+				8058C3302142F85F006BC64B /* LongText.txt */,
+				8058C3232142F310006BC64B /* Assets.xcassets */,
+				8058C3252142F310006BC64B /* LaunchScreen.storyboard */,
+				8058C3282142F310006BC64B /* Info.plist */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +152,24 @@
 			productReference = 8058C2C221418E4D006BC64B /* DMPagerView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		8058C3192142F30B006BC64B /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8058C32B2142F310006BC64B /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				8058C3162142F30B006BC64B /* Sources */,
+				8058C3172142F30B006BC64B /* Frameworks */,
+				8058C3182142F30B006BC64B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8058C32D2142F410006BC64B /* PBXTargetDependency */,
+			);
+			name = Example;
+			productName = Example;
+			productReference = 8058C31A2142F30B006BC64B /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -119,6 +184,9 @@
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
 					};
+					8058C3192142F30B006BC64B = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 8058C2BC21418E4D006BC64B /* Build configuration list for PBXProject "DMPagerView" */;
@@ -127,6 +195,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 8058C2B821418E4D006BC64B;
 			productRefGroup = 8058C2C321418E4D006BC64B /* Products */;
@@ -134,6 +203,7 @@
 			projectRoot = "";
 			targets = (
 				8058C2C121418E4D006BC64B /* DMPagerView */,
+				8058C3192142F30B006BC64B /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -146,6 +216,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8058C3182142F30B006BC64B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8058C3272142F310006BC64B /* LaunchScreen.storyboard in Resources */,
+				8058C3242142F310006BC64B /* Assets.xcassets in Resources */,
+				8058C32F2142F4B8006BC64B /* Main.storyboard in Resources */,
+				8058C3312142F867006BC64B /* LongText.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -154,8 +235,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8058C2CE21418E68006BC64B /* DMPagerView.swift in Sources */,
+				8058C33321434231006BC64B /* DMPagerView+UIScrollViewDelegate.swift in Sources */,
 				8058C31121421383006BC64B /* Extensions.swift in Sources */,
-				8058C2D0214196B4006BC64B /* DMPagerViewDelegateForwarder.swift in Sources */,
 				8058C31321421441006BC64B /* DMPagerViewController.swift in Sources */,
 				8058C3092141B2DC006BC64B /* Enums.swift in Sources */,
 				8058C2D2214199F8006BC64B /* DMPagerViewDelegate.swift in Sources */,
@@ -163,7 +244,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8058C3162142F30B006BC64B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8058C31F2142F30B006BC64B /* PagerViewExample.swift in Sources */,
+				8058C31D2142F30B006BC64B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8058C32D2142F410006BC64B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8058C2C121418E4D006BC64B /* DMPagerView */;
+			targetProxy = 8058C32C2142F410006BC64B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8058C3252142F310006BC64B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8058C3262142F310006BC64B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8058C2C821418E4D006BC64B /* Debug */ = {
@@ -351,6 +460,42 @@
 			};
 			name = Release;
 		};
+		8058C3292142F310006BC64B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 584E8BNX6Z;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dominicMiller.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8058C32A2142F310006BC64B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 584E8BNX6Z;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dominicMiller.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -368,6 +513,15 @@
 			buildConfigurations = (
 				8058C2CB21418E4D006BC64B /* Debug */,
 				8058C2CC21418E4D006BC64B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8058C32B2142F310006BC64B /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8058C3292142F310006BC64B /* Debug */,
+				8058C32A2142F310006BC64B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

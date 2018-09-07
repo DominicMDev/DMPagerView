@@ -13,11 +13,13 @@ import ObjectiveC
  A DMPagerView lets the user navigate between pages of content.
  Navigation can be controlled programmatically by your app or directly by the user using gestures.
  */
-public class DMPagerView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+public class DMPagerView: UIView, UIScrollViewDelegate {
     
     /*
-     *  MARK: - Instance Properties
+     *  MARK: - Instance Properties - Internal
      */
+    
+    var scrollView: UIScrollView
     
     var pages = [Int : UIView]()
     
@@ -27,73 +29,86 @@ public class DMPagerView: UIScrollView, UIScrollViewDelegate, UIGestureRecognize
     var index: Int = 0
     var count: Int = 0
     
-    var forwarder = DMPagerViewDelegateForwarder()
+    /*
+     *  MARK: - Instance Properties - Public
+     */
     
-    // Delegate instance that adopt the DMPagerViewDelegate.
-    @IBOutlet public dynamic weak var _delegate: DMPagerViewDelegate? {
-        get { return forwarder.delegate }
-        set { delegate = newValue }
-    }
-    @objc override public dynamic weak var delegate: UIScrollViewDelegate? {
-        get { return forwarder.delegate }
-        set {
-            let delegate = newValue as? DMPagerViewDelegate
-            guard newValue == nil || delegate != nil else { return }
-            super.delegate = nil
-            forwarder.delegate = delegate
-            super.delegate = forwarder
-        }
-    }
-    
+    /// Delegate instance that adopt the `DMPagerViewDelegate`.
+    @IBOutlet public dynamic weak var delegate: DMPagerViewDelegate?
+
     /// Data source instance that adopt the DMPagerViewDataSource.
     @IBOutlet public weak var dataSource: DMPagerViewDataSource?
     
+    /// The pager transition style.
+    public var transitionStyle: DMPagerViewTransitionStyle = .scroll {
+        didSet { scrollView.isScrollEnabled = (transitionStyle != .tab) }
+    }
+    
+    /// The gutter width. 0 by default.
+    public var gutterWidth: CGFloat = 0 {
+        didSet { setNeedsLayout(); scrollView.setNeedsLayout() }
+    }
+    
+    // MARK: Computed Properties
+    
+    /// The current selected page view.
     public var selectedPage: UIView? {
         return page(at: index)
     }
-
+    
+    /// The index representing page of selection.
     public var indexForSelectedPage: Int {
         return index
-    }
-
-    public var transitionStyle: DMPagerViewTransitionStyle = .scroll {
-        didSet { isScrollEnabled = (transitionStyle != .tab) }
-    }
-
-    public var gutterWidth: CGFloat = 0 {
-        didSet { setNeedsLayout() }
     }
     
     /// The pager progress, from 0 to the number of page.
     public var progress: CGFloat {
-        let position = contentOffset.x
+        let position = scrollView.contentOffset.x
         let width = bounds.width
         if width == 0 { return 0 }
         return position / width
     }
     
     /*
-     *  MARK: - View Life Cycle
+     *  MARK: - Object Life Cycle
      */
     
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    convenience init() {
+        self.init(frame: .zero)
+    }
+    
+    public override init(frame: CGRect) {
+        scrollView = UIScrollView(frame: frame)
+        super.init(frame: frame)
         initialize()
     }
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    public required init?(coder aDecoder: NSCoder) {
+        scrollView = UIScrollView(frame: .zero)
+        super.init(coder: aDecoder)
+        scrollView.frame = frame
         initialize()
     }
 
     private func initialize() {
-        forwarder.pagerView = self
-        super.delegate = forwarder
-        isPagingEnabled = true
-        scrollsToTop = false
-        isDirectionalLockEnabled = true
-        showsVerticalScrollIndicator = false
-        showsHorizontalScrollIndicator = false
+        addScrollView()
+        isUserInteractionEnabled = true
+        scrollView.delegate = self
+        scrollView.isPagingEnabled = true
+        scrollView.isScrollEnabled = true
+        scrollView.scrollsToTop = false
+        scrollView.isDirectionalLockEnabled = true
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+    }
+    
+    private func addScrollView() {
+        addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                                     scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                     scrollView.topAnchor.constraint(equalTo: topAnchor),
+                                     scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)])
     }
     
     /*
@@ -107,11 +122,11 @@ public class DMPagerView: UIScrollView, UIScrollViewDelegate, UIGestureRecognize
         var size = bounds.size
         size.width = size.width * CGFloat(count)
         
-        if size.equalTo(contentSize) {
-            contentSize = size
+        if !size.equalTo(scrollView.contentSize) {
+            scrollView.contentSize = size
             
             let x = bounds.size.width * CGFloat(index)
-            super.setContentOffset(CGPoint(x: x, y: 0), animated: false)
+            scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: false)
             
             layoutLoadedPages()
         }
@@ -248,31 +263,31 @@ public class DMPagerView: UIScrollView, UIScrollViewDelegate, UIGestureRecognize
     }
     
     /*
-     *  MARK: - Private Methods
+     *  MARK: - Internal Methods
      */
     
-    private func willMovePage(to index: Int) {
+    internal func willMovePage(to index: Int) {
         loadPage(at: index)
         
         let selector =  #selector(DMPagerViewDelegate.pagerView(_:willMoveToPage:at:))
-        if objectRespondsToSelector(_delegate, selector: selector) {
+        if objectRespondsToSelector(delegate, selector: selector) {
             let page = pages[index]!
-            _delegate!.pagerView!(self, willMoveToPage: page, at: index)
+            delegate!.pagerView!(self, willMoveToPage: page, at: index)
         }
     }
     
-    private func didMovePage(to index: Int) {
+    internal func didMovePage(to index: Int) {
         let selector =  #selector(DMPagerViewDelegate.pagerView(_:didMoveToPage:at:))
-        if objectRespondsToSelector(_delegate, selector: selector) {
+        if objectRespondsToSelector(delegate, selector: selector) {
             let page = pages[index]!
-            _delegate!.pagerView!(self, didMoveToPage: page, at: index)
+            delegate!.pagerView!(self, didMoveToPage: page, at: index)
         }
         unloadHiddenPages()
     }
     
-    private func loadPage(at index: Int) {
-        guard let dataSource = dataSource else { return }
-        if page(at: index) == nil && index >= 0 && index < count {
+    internal func loadPage(at index: Int) {
+        guard let dataSource = dataSource, index >= 0 && index < count else { return }
+        if page(at: index) == nil {
             let page = dataSource.pagerView(self, viewForPageAt: index)
             
             //Layout page
@@ -282,21 +297,22 @@ public class DMPagerView: UIScrollView, UIScrollViewDelegate, UIGestureRecognize
             page.frame = frame
             
             let selector =  #selector(DMPagerViewDelegate.pagerView(_:willDisplayPage:at:))
-            if objectRespondsToSelector(_delegate, selector: selector) {
-                _delegate!.pagerView!(self, willDisplayPage: page, at: index)
+            if objectRespondsToSelector(delegate, selector: selector) {
+                delegate!.pagerView!(self, willDisplayPage: page, at: index)
             }
             
-            addSubview(page)
+            scrollView.addSubview(page)
+            scrollView.setNeedsLayout()
             setNeedsLayout()
             
             //Save page
             pages[index] = page
+            
         }
-        
         //In  case of slide behavior, its loads the neighbors as well.
         if transitionStyle == .scroll {
-            loadPage(at: index - 1)
-            loadPage(at: index + 1)
+            if page(at: index - 1) == nil { loadPage(at: index - 1) }
+            if page(at: index + 1) == nil { loadPage(at: index + 1) }
         }
     }
             
@@ -313,78 +329,28 @@ public class DMPagerView: UIScrollView, UIScrollViewDelegate, UIGestureRecognize
                 if page.reuseIdentifier != nil { reuseQueue.append(page) }
                 
                 let selector =  #selector(DMPagerViewDelegate.pagerView(_:didEndDisplayingPage:at:))
-                if objectRespondsToSelector(_delegate, selector: selector) {
-                    _delegate!.pagerView!(self, didEndDisplayingPage: page, at: index)
+                if objectRespondsToSelector(delegate, selector: selector) {
+                    delegate!.pagerView!(self, didEndDisplayingPage: page, at: index)
                 }
             }
         }
         pages.removeValues(forKeys: toUnload)
     }
     
-    open override func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
+    public func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
         if fmod(contentOffset.x, bounds.width) == 0 {
             let index = Int(contentOffset.x / bounds.width)
             
             willMovePage(to: index)
-            super.setContentOffset(contentOffset, animated: animated)
+            scrollView.setContentOffset(contentOffset, animated: animated)
             
             self.index = index
             
             if !animated { didMovePage(to: index) }
             
         } else {
-            super.setContentOffset(contentOffset, animated: animated)
+            scrollView.setContentOffset(contentOffset, animated: animated)
         }
-    }
-    
-    /*
-     *  MARK: - UIScrollViewDelegate
-     */
-    
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
-        self.index = index
-        didMovePage(to: index)
-        
-        let selector = #selector(DMPagerViewDelegate.scrollViewDidEndDecelerating(_:))
-        if objectRespondsToSelector(delegate, selector: selector) {
-            delegate!.scrollViewDidEndDecelerating!(scrollView)
-        }
-    }
-    
-    public func scrollViewWillEndDragging(_ scrollView: UIScrollView,
-                                          withVelocity velocity: CGPoint,
-                                          targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let position  = targetContentOffset.pointee.x
-        let width     = scrollView.bounds.width
-        
-        let index = Int(position / width)
-        willMovePage(to: index)
-        
-        let selector = #selector(DMPagerViewDelegate.scrollViewWillEndDragging(_:withVelocity:targetContentOffset:))
-        if objectRespondsToSelector(delegate, selector: selector){
-            delegate!.scrollViewWillEndDragging!(scrollView,
-                                                 withVelocity: velocity,
-                                                 targetContentOffset: targetContentOffset)
-        }
-    }
-    
-    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        didMovePage(to: index)
-        let selector = #selector(DMPagerViewDelegate.scrollViewDidEndScrollingAnimation(_:))
-        if objectRespondsToSelector(delegate, selector: selector) {
-            delegate!.scrollViewDidEndScrollingAnimation!(scrollView)
-        }
-    }
-    
-    /*
-     *  MARK: - UIGestureRecognizerDelegate
-     */
-
-    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return true }
-        let velocity = gestureRecognizer.velocity(in: self)
-        return !(fabs(velocity.x) < fabs(velocity.y))
     }
 
 }

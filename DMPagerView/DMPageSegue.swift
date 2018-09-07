@@ -12,7 +12,7 @@ import UIKit
  *  MARK: - DMPageSegue
  */
 
-public let DMSeguePageIdentifierFormat = "dx_page_##"
+public let DMSeguePageIdentifierFormat = "dm_page_##"
 
 public class DMPageSegue: UIStoryboardSegue {
     public typealias SourceViewController = UIViewController & DMPageSegueSource
@@ -29,13 +29,13 @@ public class DMPageSegue: UIStoryboardSegue {
     
     public init(identifier: String?, source: SourceViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
-        if source.responds(to: #selector(getter: pageIndex)) { pageIndex = source.pageIndex }
+        pageIndex = source.pageIndex
     }
     
     public override func perform() {
         destination.willMove(toParentViewController: sourceVC)
         sourceVC.addChildViewController(destination)
-        sourceVC.setPageViewController(destination, at: pageIndex)
+        sourceVC.setPageViewController(destination, at: sourceVC.pageIndex)
         destination.didMove(toParentViewController: sourceVC)
     }
     

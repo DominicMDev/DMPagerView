@@ -1,8 +1,9 @@
 # DMPagerView
 
-[![Version](https://img.shields.io/cocoapods/v/DMPagerView.svg?style=flat)](http://cocoapods.org/pods/DMPagerView)
-[![License](https://img.shields.io/cocoapods/l/DMPagerView.svg?style=flat)](http://cocoapods.org/pods/DMPagerView)
-[![Platform](https://img.shields.io/cocoapods/p/DMPagerView.svg?style=flat)](http://cocoapods.org/pods/DMPagerView)
+[![Pod Version](http://img.shields.io/cocoapods/v/DMPagerView.svg?style=flat)](http://cocoadocs.org/docsets/DMPagerView)
+![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)
+![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
+[![Pod License](http://img.shields.io/cocoapods/l/DMPagerView.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 This is a Swift conversion of https://github.com/maxep/MXPagerView
 

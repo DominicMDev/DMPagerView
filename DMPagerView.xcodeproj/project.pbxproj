@@ -52,6 +52,9 @@
 		8058C32E2142F4B8006BC64B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8058C3302142F85F006BC64B /* LongText.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LongText.txt; sourceTree = "<group>"; };
 		8058C33221434231006BC64B /* DMPagerView+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DMPagerView+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		8091C82B214ADE67006DDD75 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8091C82C214ADE6B006DDD75 /* DMPagerView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DMPagerView.podspec; sourceTree = "<group>"; };
+		8091C82D214ADF79006DDD75 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 		8058C2B821418E4D006BC64B = {
 			isa = PBXGroup;
 			children = (
+				8091C82A214ADE28006DDD75 /* Metadata */,
 				8058C2C421418E4D006BC64B /* DMPagerView */,
 				8058C31B2142F30B006BC64B /* Example */,
 				8058C2C321418E4D006BC64B /* Products */,
@@ -118,6 +122,16 @@
 				8058C3282142F310006BC64B /* Info.plist */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		8091C82A214ADE28006DDD75 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				8091C82C214ADE6B006DDD75 /* DMPagerView.podspec */,
+				8091C82B214ADE67006DDD75 /* LICENSE */,
+				8091C82D214ADF79006DDD75 /* README.md */,
+			);
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

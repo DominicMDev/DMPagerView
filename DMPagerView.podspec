@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DMPagerView"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.swift_version    = "4.0"
   s.summary          = "Pager view with reusable page and storyboard support."
   s.description      = <<-DESC

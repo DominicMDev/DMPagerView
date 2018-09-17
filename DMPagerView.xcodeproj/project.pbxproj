@@ -53,7 +53,7 @@
 		8058C3302142F85F006BC64B /* LongText.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LongText.txt; sourceTree = "<group>"; };
 		8058C33221434231006BC64B /* DMPagerView+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DMPagerView+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		8091C82B214ADE67006DDD75 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		8091C82C214ADE6B006DDD75 /* DMPagerView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DMPagerView.podspec; sourceTree = "<group>"; };
+		8091C82C214ADE6B006DDD75 /* DMPagerView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = DMPagerView.podspec; sourceTree = "<group>"; };
 		8091C82D214ADF79006DDD75 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
